@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+
+<title>Employee Management System</title>
+</head>
+<body>
+
+	<!-- navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+		<a class="navbar-brand" href="/employees">Employee Management
+			System</a>
+
+
+	</nav>
+
+
+
+	<div class="container p-3">
+		<div class="col">
+
+			<!-- search form -->
+
+			<h3>List Of Employees</h3>
+			<a href="new">
+				<button type="button" class="btn btn-primary">Add Employee</button>
+			</a> <a href="/employees">
+				<button type="button" class="btn btn-primary">Show All
+					Employees</button>
+			</a>
+
+		</div>
+
+
+		<!-- table to show tickets -->
+		<table class="table">
+			<thead class="bg-dark text-white">
+				<tr>
+					<!-- <th scope="col">#</th> -->
+
+					<th scope="col">Employee First Name</th>
+					<th scope="col">Employee Last Name</th>
+					<th scope="col">Employee Email</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e:${emp}">
+
+
+					<td th:text="${e.firstName}"></td>
+					<td th:text="${e.lastName}"></td>
+					<td th:text="${e.email}"></td>
+					<td><a class="btn btn-primary" href="#" role="button"
+						th:href="@{/edit/{id}(id=${e.id})}">Edit</a> <a
+						class="btn btn-danger text-white" href="#" role="button"
+						th:href="@{/delete/{id}(id=${e.id})}">Delete</a>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+	</div>
+
+
+	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+		crossorigin="anonymous"></script>
+
+
+</body>
+</html>
